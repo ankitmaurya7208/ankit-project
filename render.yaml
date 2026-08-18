@@ -1,0 +1,17 @@
+services:
+  # Node.js Express REST API Backend
+  - type: web
+    name: dhan-yodha-api
+    env: node
+    buildCommand: npm install
+    startCommand: node server/index.cjs
+    envVars:
+      - key: PORT
+        value: 5000
+
+  # React Frontend Static Site
+  - type: web
+    name: dhan-yodha-web
+    env: static
+    buildCommand: npm run build
+    staticPublishPath: ./dist

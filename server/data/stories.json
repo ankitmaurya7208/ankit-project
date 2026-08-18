@@ -1,0 +1,81 @@
+[
+  {
+    "id": "story-1786992275078",
+    "title": "ankit",
+    "author": "Anonymous Citizen",
+    "category": "UPI Fraud",
+    "date": "2026-08-17",
+    "description": ".",
+    "lossAmount": "150000",
+    "lesson": "nerve share the otp",
+    "upvotes": 1,
+    "tags": [
+      "UPI Fraud",
+      "Community Awareness"
+    ]
+  },
+  {
+    "id": "story-101",
+    "title": "Lost ₹45,000 to a Fake OLX Buyer Asking to 'Scan QR Code to Receive Money'",
+    "author": "Rajesh M. (Pune)",
+    "category": "UPI Fraud",
+    "date": "2026-08-10",
+    "description": "I listed a sofa set on OLX. A buyer claiming to be a military officer contacted me and said he wanted to pay immediately via UPI. He sent me a QR code on WhatsApp saying 'Scan this QR code to receive ₹15,000 advance'. I didn't know QR codes are ONLY used to PAY money, not receive! I scanned it and entered my UPI PIN, and instantly ₹15,000 was deducted. Before I realized, he tricked me into scanning twice more to 'refund' the money.",
+    "lossAmount": "₹45,000",
+    "lesson": "NEVER enter your UPI PIN to receive money! Entering a PIN ALWAYS deducts money from your account.",
+    "upvotes": 42,
+    "tags": [
+      "UPI QR Scam",
+      "OLX Scam",
+      "PIN Safety"
+    ]
+  },
+  {
+    "id": "story-102",
+    "title": "ATM Card Skimmer at a Remote Highway ATM Machine",
+    "author": "Anonymous",
+    "category": "ATM Skimming",
+    "date": "2026-08-04",
+    "description": "While driving on a highway, I stopped at an unattended non-bank ATM. The card slot felt a bit loose, but I ignored it. Two days later, I received 4 consecutive SMS alerts for cash withdrawals totaling ₹20,000 in another city! Cyber cell told me a fake card reader (skimmer) and hidden camera had cloned my magnetic stripe and stolen my PIN while I typed it uncovered.",
+    "lossAmount": "₹20,000",
+    "lesson": "Always check if the ATM slot is firm, cover the keypad with your hand when typing PIN, and prefer ATMs inside bank branches with guards.",
+    "upvotes": 38,
+    "tags": [
+      "ATM Skimming",
+      "PIN Coverage",
+      "Card Cloning"
+    ]
+  },
+  {
+    "id": "story-103",
+    "title": "Fake Electricity Bill Disconnection SMS & AnyDesk Remote Access Scam",
+    "author": "Sunita K. (Mumbai)",
+    "category": "Remote App Fraud",
+    "date": "2026-07-28",
+    "description": "I received an urgent SMS: 'Dear consumer your power will be disconnected at 9:30 PM due to unpaid bill of ₹12. Call 98xx-xxx-xxx'. Flustered, I called. The fake officer asked me to install an app called 'AnyDesk' for quick live verification. Once installed, he asked me to pay ₹10 via my netbanking app. Because he had live view of my screen, he captured my netbanking password & OTP and cleared ₹1.2 Lakhs!",
+    "lossAmount": "₹1,20,000",
+    "lesson": "Never download screen sharing apps (AnyDesk, TeamViewer, RustDesk) at the request of strangers or alleged official caller!",
+    "upvotes": 65,
+    "tags": [
+      "Phishing SMS",
+      "Screen Share Scam",
+      "AnyDesk"
+    ]
+  },
+  {
+    "id": "story-104",
+    "title": "Search Engine Fake Customer Care Number Scam for Bank Refund",
+    "author": "Ankit S. (Bengaluru)",
+    "category": "Vishing & Helpline Scam",
+    "date": "2026-07-15",
+    "description": "My transaction failed on a shopping site but money was deducted. I searched Google for 'XYZ Bank Toll Free Helpline'. The top search result (which was a paid ad) had a bogus number. I called it, and the fraudster posed as a bank manager. He persuaded me to share an OTP received on my phone claiming it was a 'Refund Verification Code'.",
+    "lossAmount": "₹18,500",
+    "lesson": "Never trust bank contact numbers found on Google search results or social media. Always use official numbers printed behind your debit card or official bank website.",
+    "upvotes": 51,
+    "tags": [
+      "Google Helpline Scam",
+      "OTP Sharing",
+      "Vishing"
+    ]
+  }
+]
