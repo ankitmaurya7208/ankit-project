@@ -1,157 +1,213 @@
 import React from 'react';
 import { 
   ShieldCheck, 
-  AlertTriangle, 
+  ShieldAlert, 
   CreditCard, 
+  AlertTriangle, 
   Key, 
-  HelpCircle, 
-  MessageSquareQuote, 
   PhoneCall, 
-  ArrowRight,
-  Search,
-  CheckSquare,
-  Clock,
-  Lock
+  ArrowRight, 
+  Sparkles, 
+  CheckCircle2, 
+  HelpCircle, 
+  MessageSquareQuote,
+  Zap,
+  Lock,
+  Smartphone,
+  User,
+  Edit2
 } from 'lucide-react';
-import UpiAtmOtpSimulator from '../components/Widgets/UpiAtmOtpSimulator';
-import FraudRiskEvaluator from '../components/Widgets/FraudRiskEvaluator';
 
-export default function Home({ setActivePage, storyCount = 0, lang = 'en' }) {
+export default function Home({ setActivePage, storyCount = 0, lang = 'en', userName = 'Warrior', onEditName }) {
   return (
     <div className="d-flex flex-column gap-4 fade-in-up">
-      {/* Hero Section */}
-      <div className="hero-container">
-        <div className="hero-glow"></div>
+      
+      {/* Personalized Greeting Card matching user request */}
+      <div className="p-3 px-4 bg-success bg-opacity-10 border border-success rounded-4 d-flex align-items-center justify-content-between flex-wrap gap-2">
+        <div className="d-flex align-items-center gap-2">
+          <div className="p-2 bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style={{ width: '38px', height: '38px' }}>
+            <User size={20} />
+          </div>
+          <div>
+            <h5 className="fw-bold mb-0 text-forest" style={{ fontFamily: 'Outfit, sans-serif' }}>
+              {lang === 'hi'
+                ? `नमस्ते ${userName}, क्या आप अपने पैसों की सुरक्षा के लिए तैयार हैं? 🛡️`
+                : `Hello ${userName}, ready to protect your money? 🛡️`}
+            </h5>
+            <small className="text-muted">
+              {lang === 'hi' ? 'आपका व्यक्तिगत सुरक्षा डैशबोर्ड सक्रिय है' : 'Your personal cyber safety protection dashboard is active'}
+            </small>
+          </div>
+        </div>
+
+        <button 
+          className="btn btn-sm btn-outline-forest rounded-pill d-flex align-items-center gap-1"
+          onClick={onEditName}
+          title="Edit your name"
+        >
+          <Edit2 size={14} />
+          <span className="small">{lang === 'hi' ? 'नाम बदलें' : 'Edit Name'}</span>
+        </button>
+      </div>
+
+      {/* Hero Forest Green Banner */}
+      <div className="hero-cyber-card text-center text-md-start">
         <div className="row align-items-center g-4">
-          <div className="col-lg-8">
-            <span className="badge bg-success bg-opacity-25 text-success mb-2 px-3 py-2 rounded-pill fw-semibold">
-              🔒 {lang === 'hi' ? 'धन योद्धा • सुरक्षित ऑनलाइन बैंकिंग जागरूकता पोर्टल' : 'Dhan Yodha • Safe Banking Awareness Portal'}
-            </span>
-            <h1 className="display-5 fw-bold text-white mb-3" style={{ fontFamily: 'Outfit, sans-serif' }}>
-              {lang === 'hi' ? 'Dhan Yodha — अपने पैसों को साइबर फ्रॉड से सुरक्षित रखें' : 'Dhan Yodha — Protect Your Money from Online Banking Frauds'}
+          <div className="col-md-7">
+            <div className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-success bg-opacity-20 border border-success text-success mb-3 small fw-bold">
+              <Sparkles size={14} className="text-warning" />
+              <span>{lang === 'hi' ? 'राष्ट्रीय सुरक्षा पोर्टल • 2024' : 'NATIONAL SAFETY PORTAL • 2024'}</span>
+            </div>
+
+            <h1 className="fw-bold text-white mb-2" style={{ fontFamily: 'Outfit, sans-serif' }}>
+              {lang === 'hi' ? 'धन योद्धा साइबर सुरक्षा' : 'DHAN YODHA'}
             </h1>
-            <p className="lead text-light opacity-90 mb-4" style={{ maxWidth: '650px' }}>
-              {lang === 'hi' 
-                ? 'UPI भुगतान, ATM कार्ड सुरक्षा, OTP हाइजीन, फ़िशिंग पहचान एवं पासवर्ड प्रबंधन की आवश्यक साइबर सुरक्षा नियम सीखें।' 
-                : 'Learn essential cyber hygiene for UPI payments, ATM card protection, OTP safety, phishing detection, and secure password management.'}
+            <p className="lead text-light opacity-90 mb-4" style={{ fontSize: '1.05rem' }}>
+              {lang === 'hi'
+                ? 'सुरक्षित ऑनलाइन बैंकिंग जागरूकता केंद्र। UPI फ्रॉड, ATM स्किमिंग और ओटीपी चोरी से अपना खाता बचाएं।'
+                : 'India’s official safe online banking awareness portal. Empowering citizens against UPI, ATM & OTP cyber frauds.'}
             </p>
 
-            <div className="d-flex flex-wrap gap-3">
+            <div className="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
               <button 
-                className="btn btn-forest rounded-3 btn-lg px-4"
-                onClick={() => setActivePage('quiz')}
+                className="btn btn-warning text-dark px-4 py-2 rounded-pill fw-bold d-flex align-items-center gap-2 border-0"
+                onClick={() => setActivePage('upi-atm')}
               >
-                <HelpCircle size={20} />
-                <span>{lang === 'hi' ? 'सुरक्षा प्रश्नोत्तरी लें' : 'Take Online Safety Quiz'}</span>
+                <span>{lang === 'hi' ? 'सुरक्षा सिम्युलेटर चलाएं' : 'Launch Safety Simulator'}</span>
+                <ArrowRight size={18} />
               </button>
+
               <button 
-                className="btn btn-outline-light rounded-3 btn-lg px-4"
-                onClick={() => setActivePage('stories')}
+                className="btn btn-outline-light px-4 py-2 rounded-pill fw-bold"
+                onClick={() => setActivePage('senior-hub')}
               >
-                <MessageSquareQuote size={20} />
-                <span>{lang === 'hi' ? 'समुदाय कहानियाँ पढ़ें' : 'Read Community Stories'}</span>
+                {lang === 'hi' ? 'बुजुर्ग कॉर्नर' : 'Senior Citizens Hub'}
               </button>
             </div>
           </div>
 
-          <div className="col-lg-4 text-center">
-            <div className="p-4 bg-white bg-opacity-10 rounded-4 backdrop-blur border border-light border-opacity-25 text-white">
-              <div className="d-inline-flex p-3 rounded-circle bg-success bg-opacity-25 mb-3">
-                <ShieldCheck size={48} style={{ color: '#6EE7B7' }} />
+          {/* 94% Stat Badge Box */}
+          <div className="col-md-5 text-center">
+            <div className="p-4 rounded-4 bg-black bg-opacity-40 border border-warning shadow-lg d-inline-block w-100" style={{ maxWidth: '320px' }}>
+              <div className="position-relative d-inline-block mb-2">
+                <div className="display-3 fw-bold font-monospace" style={{ color: '#A7F3D0', textShadow: '0 0 15px rgba(16, 185, 129, 0.5)' }}>
+                  94%
+                </div>
               </div>
-              <h3 className="fw-bold mb-1" style={{ color: '#A7F3D0', textShadow: '0 0 12px rgba(167, 243, 208, 0.4)' }}>
-                94% {lang === 'hi' ? 'साइबर फ्रॉड से बचाव' : 'Cyber Frauds Prevented'}
-              </h3>
-              <p className="small text-light opacity-90 mb-3 fw-medium">
-                {lang === 'hi' 
-                  ? 'केवल यह याद रखकर रोका जा सकता है कि पैसे पाने के लिए कभी भी PIN दर्ज न करें।' 
-                  : 'Can be prevented simply by NEVER entering your UPI PIN to receive money.'}
+              <h5 className="fw-bold text-warning mb-1">
+                {lang === 'hi' ? 'साइबर फ्रॉड की रोकथाम' : 'Cyber Frauds Prevented'}
+              </h5>
+              <p className="small text-light opacity-85 mb-0">
+                {lang === 'hi' ? 'हमारे समुदाय द्वारा 2024 में सुरक्षित व्यवहार!' : 'in 2024 by our educated community! STAY ALERT!'}
               </p>
-              <div className="p-2 rounded-3 bg-dark bg-opacity-75 small border border-secondary border-opacity-25 text-warning font-monospace fw-bold">
-                National Cyber Helpline: 1930
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Key Safety Modules 2x2 Grid */}
+      <div>
+        <div className="d-flex align-items-center justify-content-between mb-3">
+          <h4 className="fw-bold mb-0 text-forest" style={{ fontFamily: 'Outfit, sans-serif' }}>
+            {lang === 'hi' ? 'मुख्य सुरक्षा मॉड्युल्स' : 'Key Safety Modules'}
+          </h4>
+          <span className="badge bg-forest text-white">
+            {lang === 'hi' ? '4 इंटरएक्टिव उपकरण' : '4 Interactive Modules'}
+          </span>
+        </div>
+
+        <div className="safety-module-grid">
+          {/* Module 1: UPI Safety */}
+          <div className="module-card" onClick={() => setActivePage('upi-atm')}>
+            <div className="module-icon-box">
+              <Zap size={28} />
+            </div>
+            <h6 className="fw-bold text-forest mb-1">UPI SAFETY</h6>
+            <small className="text-muted">{lang === 'hi' ? 'UPI सुरक्षा नियम जानें' : 'Learn UPI safeguards'}</small>
+          </div>
+
+          {/* Module 2: ATM Secure */}
+          <div className="module-card" onClick={() => setActivePage('upi-atm')}>
+            <div className="module-icon-box">
+              <CreditCard size={28} />
+            </div>
+            <h6 className="fw-bold text-forest mb-1">ATM SECURE</h6>
+            <small className="text-muted">{lang === 'hi' ? 'ATM स्किमिंग से बचें' : 'Avoid ATM skimming'}</small>
+          </div>
+
+          {/* Module 3: OTP Protection */}
+          <div className="module-card" onClick={() => setActivePage('password-pin')}>
+            <div className="module-icon-box">
+              <Lock size={28} />
+            </div>
+            <h6 className="fw-bold text-forest mb-1">OTP PROTECTION</h6>
+            <small className="text-muted">{lang === 'hi' ? 'OTP गोपनीयता नियम' : 'Learn OTP protection'}</small>
+          </div>
+
+          {/* Module 4: Secure App */}
+          <div className="module-card" onClick={() => setActivePage('url-inspector')}>
+            <div className="module-icon-box">
+              <Smartphone size={28} />
+            </div>
+            <h6 className="fw-bold text-forest mb-1">SECURE APP</h6>
+            <small className="text-muted">{lang === 'hi' ? 'मोबाइल सुरक्षा निर्देश' : 'Learn Mobile safety'}</small>
+          </div>
+        </div>
+      </div>
+
+      {/* Emergency Helpline Call 1930 Bar */}
+      <a href="tel:1930" className="emergency-cyber-bar">
+        <PhoneCall size={22} className="animate-pulse" />
+        <span className="text-white">
+          {lang === 'hi' ? 'आपातकालीन सहायता: साइबर फ्रॉड की तुरंत रिपोर्ट करें - कॉल 1930' : 'EMERGENCY: Report Cyber Fraud: Call 1930'}
+        </span>
+      </a>
+
+      {/* Quick Action Tiles */}
+      <div className="row g-3">
+        <div className="col-md-4">
+          <div className="cyber-card h-100 cursor-pointer" onClick={() => setActivePage('news')}>
+            <div className="d-flex align-items-center gap-3">
+              <div className="p-3 bg-danger bg-opacity-10 text-danger rounded-3">
+                <AlertTriangle size={26} />
+              </div>
+              <div>
+                <h6 className="fw-bold text-forest mb-1">Scam News Bulletin</h6>
+                <small className="text-muted">Real case files & advisories</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-md-4">
+          <div className="cyber-card h-100 cursor-pointer" onClick={() => setActivePage('quiz')}>
+            <div className="d-flex align-items-center gap-3">
+              <div className="p-3 bg-warning bg-opacity-20 text-dark rounded-3">
+                <HelpCircle size={26} />
+              </div>
+              <div>
+                <h6 className="fw-bold text-forest mb-1">Online Safety Quiz</h6>
+                <small className="text-muted">Earn Certificate for {userName}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-md-4">
+          <div className="cyber-card h-100 cursor-pointer" onClick={() => setActivePage('stories')}>
+            <div className="d-flex align-items-center gap-3">
+              <div className="p-3 bg-success bg-opacity-10 text-success rounded-3">
+                <MessageSquareQuote size={26} />
+              </div>
+              <div>
+                <h6 className="fw-bold text-forest mb-1">Community Stories</h6>
+                <small className="text-muted">{storyCount} Victim Experiences</small>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Quick Tool Entry Cards */}
-      <div className="row g-4">
-        <div className="col-md-4">
-          <div 
-            className="custom-card beige-accent h-100 cursor-pointer"
-            onClick={() => setActivePage('risk-eval')}
-            style={{ cursor: 'pointer' }}
-          >
-            <div className="d-flex align-items-center justify-content-between mb-3">
-              <div className="bg-forest text-white p-3 rounded-3">
-                <CheckSquare size={24} />
-              </div>
-              <ArrowRight size={20} className="text-muted" />
-            </div>
-            <h5 className="fw-bold text-forest mb-2">
-              {lang === 'hi' ? 'व्यक्तिगत जोखिम मूल्यांकन' : 'Personal Risk Score Wizard'}
-            </h5>
-            <p className="small text-muted mb-0">
-              Assess your vulnerability score (0-100) based on daily payment and NetBanking habits.
-            </p>
-          </div>
-        </div>
-
-        <div className="col-md-4">
-          <div 
-            className="custom-card h-100 cursor-pointer"
-            onClick={() => setActivePage('url-inspector')}
-            style={{ cursor: 'pointer' }}
-          >
-            <div className="d-flex align-items-center justify-content-between mb-3">
-              <div className="bg-dark text-white p-3 rounded-3">
-                <Search size={24} />
-              </div>
-              <ArrowRight size={20} className="text-muted" />
-            </div>
-            <h5 className="fw-bold text-dark mb-2">
-              {lang === 'hi' ? 'फ़ेक बैंक पोर्टल निरीक्षक' : 'Fake Bank Portal & URL Inspector'}
-            </h5>
-            <p className="small text-muted mb-0">
-              Inspect suspicious SMS links, domain typos, missing HTTPS locks, and malicious .apk files.
-            </p>
-          </div>
-        </div>
-
-        <div className="col-md-4">
-          <div 
-            className="custom-card beige-accent h-100 cursor-pointer"
-            onClick={() => setActivePage('emergency')}
-            style={{ cursor: 'pointer' }}
-          >
-            <div className="d-flex align-items-center justify-content-between mb-3">
-              <div className="bg-danger text-white p-3 rounded-3">
-                <Clock size={24} />
-              </div>
-              <ArrowRight size={20} className="text-muted" />
-            </div>
-            <h5 className="fw-bold text-dark mb-2">
-              {lang === 'hi' ? 'गोल्डन आवर एवं डायरेक्टरी' : 'Emergency Golden Hour Protocol'}
-            </h5>
-            <p className="small text-muted mb-0">
-              Critical 60-minute response checklist and official bank card blocking SMS/Helpline numbers.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Embedded Personal Risk Score Wizard */}
-      <FraudRiskEvaluator lang={lang} />
-
-      {/* Featured Interactive Widget: UPI & ATM Simulator Preview */}
-      <div className="mt-2">
-        <h4 className="fw-bold text-forest mb-3">
-          <Lock size={22} className="me-2 text-success" />
-          {lang === 'hi' ? 'UPI एवं ATM सुरक्षा सिम्युलेटर' : 'Featured Interactive Simulators'}
-        </h4>
-        <UpiAtmOtpSimulator />
-      </div>
     </div>
   );
 }

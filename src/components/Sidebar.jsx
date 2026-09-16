@@ -15,10 +15,21 @@ import {
   Clock,
   Printer,
   Newspaper,
-  Heart
+  Heart,
+  X
 } from 'lucide-react';
 
-export default function Sidebar({ activePage, setActivePage, collapsed, setCollapsed, storyCount = 0, lang = 'en', onOpenPrintModal }) {
+export default function Sidebar({ 
+  activePage, 
+  setActivePage, 
+  collapsed, 
+  setCollapsed, 
+  mobileOpen, 
+  setMobileOpen, 
+  storyCount = 0, 
+  lang = 'en', 
+  onOpenPrintModal 
+}) {
   const menuItems = [
     { id: 'home', label: lang === 'hi' ? 'डैशबोर्ड होम' : 'Dashboard Home', icon: Home },
     { id: 'senior-hub', label: lang === 'hi' ? 'वरिष्ठ नागरिक कॉर्नर' : 'Senior Citizens Hub', icon: Heart, badge: 'EASY' },
@@ -33,83 +44,120 @@ export default function Sidebar({ activePage, setActivePage, collapsed, setColla
     { id: 'stories', label: lang === 'hi' ? 'समुदाय अनुभव कहानियाँ' : 'Community Stories', icon: MessageSquareQuote, badge: storyCount },
   ];
 
+  const handleNavClick = (id) => {
+    setActivePage(id);
+    if (mobileOpen && setMobileOpen) {
+      setMobileOpen(false);
+    }
+  };
+
+  const isExpanded = !collapsed || mobileOpen;
+
   return (
-    <aside className={`sidebar-container ${collapsed ? 'collapsed' : ''}`}>
-      <div>
-        {/* Brand Header */}
-        <div className="sidebar-brand">
-          <div className="bg-success text-white p-2 rounded-3 d-flex align-items-center justify-content-center" style={{ width: '42px', height: '42px' }}>
-            <ShieldAlert size={26} />
-          </div>
-          {!collapsed && (
-            <div>
-              <h5 className="fw-bold mb-0 text-white" style={{ fontFamily: 'Outfit, sans-serif', letterSpacing: '0.8px' }}>
-                DHAN YODHA
-              </h5>
-              <span className="badge bg-outline-success text-success p-0" style={{ fontSize: '0.72rem' }}>
-                {lang === 'hi' ? 'धन योद्धा • साइबर सुरक्षा' : 'धन योद्धा • Banking Warrior'}
-              </span>
-            </div>
-          )}
-        </div>
-
-        {/* Toggle Collapse Button */}
-        <div className="px-3 py-2 text-end">
-          <button 
-            className="btn btn-sm btn-outline-secondary border-0 text-white-50 p-1"
-            onClick={() => setCollapsed(!collapsed)}
-            title={collapsed ? "Expand Sidebar" : "Collapse Sidebar"}
-          >
-            {collapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
-          </button>
-        </div>
-
-        {/* Navigation Menu */}
-        <ul className="sidebar-menu">
-          {menuItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activePage === item.id;
-            return (
-              <li key={item.id}>
-                <button
-                  className={`nav-item-btn ${isActive ? 'active' : ''}`}
-                  onClick={() => setActivePage(item.id)}
-                  title={item.label}
-                >
-                  <Icon size={20} className={isActive ? 'text-white' : ''} />
-                  {!collapsed && <span className="small">{item.label}</span>}
-                  {!collapsed && item.badge !== undefined && (
-                    <span className={`badge-counter ${item.badge === 'EASY' ? 'bg-warning text-dark' : item.badge === 'HOT' ? 'bg-danger text-white' : ''}`}>{item.badge}</span>
-                  )}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-
-      {/* Sidebar Footer */}
-      {!collapsed && (
-        <div className="m-3 p-3 rounded-4 bg-dark border border-secondary border-opacity-25 d-flex flex-column gap-2">
-          <button 
-            className="btn btn-outline-light btn-sm w-100 fw-bold d-flex align-items-center justify-content-center gap-1"
-            onClick={onOpenPrintModal}
-          >
-            <Printer size={14} />
-            <span>Print Cheat Sheet</span>
-          </button>
-
-          <div>
-            <div className="d-flex align-items-center gap-2 mb-1 text-warning">
-              <PhoneCall size={16} />
-              <span className="fw-bold small">Cyber Crime Helpline</span>
-            </div>
-            <a href="tel:1930" className="btn btn-warning btn-sm w-100 fw-bold rounded-3">
-              Dial 1930
-            </a>
-          </div>
-        </div>
+    <>
+      {/* Mobile Dark Backdrop Overlay */}
+      {mobileOpen && (
+        <div 
+          className="mobile-overlay d-md-none" 
+          onClick={() => setMobileOpen(false)}
+        />
       )}
-    </aside>
+
+      <aside className={`sidebar-container ${collapsed ? 'collapsed' : ''} ${mobileOpen ? 'mobile-open' : ''}`}>
+        <div>
+          {/* Brand Header */}
+          <div className="sidebar-brand justify-content-between">
+            <div className="d-flex align-items-center gap-2 overflow-hidden">
+              <div className="bg-success text-white p-2 rounded-3 d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px', minWidth: '40px', flexShrink: 0 }}>
+                <ShieldAlert size={24} />
+              </div>
+              {isExpanded && (
+                <div className="fade-in-up text-nowrap overflow-hidden">
+                  <h5 className="fw-bold mb-0 text-white" style={{ fontFamily: 'Outfit, sans-serif', letterSpacing: '0.6px' }}>
+                    DHAN YODHA
+                  </h5>
+                  <span className="badge bg-transparent text-success p-0" style={{ fontSize: '0.7rem' }}>
+                    {lang === 'hi' ? 'धन योद्धा • सुरक्षा' : 'Banking Warrior'}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Close X Button */}
+            <button 
+              className="btn btn-sm text-white-50 p-1 d-md-none border-0 shadow-none"
+              onClick={() => setMobileOpen(false)}
+              title="Close Menu"
+            >
+              <X size={24} />
+            </button>
+
+            {/* Desktop Expand / Collapse Toggle Button */}
+            <button 
+              className="btn btn-sm text-white-50 p-1 d-none d-md-block border-0 shadow-none"
+              onClick={() => setCollapsed(!collapsed)}
+              title={collapsed ? "Expand Navigation Menu" : "Collapse Navigation Menu"}
+            >
+              {collapsed ? <ChevronRight size={22} className="text-warning" /> : <ChevronLeft size={20} />}
+            </button>
+          </div>
+
+          {/* Navigation Menu */}
+          <ul className="sidebar-menu">
+            {menuItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = activePage === item.id;
+              return (
+                <li key={item.id}>
+                  <button
+                    className={`nav-item-btn ${isActive ? 'active' : ''}`}
+                    onClick={() => handleNavClick(item.id)}
+                    title={item.label}
+                  >
+                    <Icon size={20} className={isActive ? 'text-white' : ''} style={{ minWidth: '20px', flexShrink: 0 }} />
+                    {isExpanded && (
+                      <span className="nav-label-text text-nowrap overflow-hidden text-truncate">
+                        {item.label}
+                      </span>
+                    )}
+                    {isExpanded && item.badge !== undefined && (
+                      <span className={`badge-counter ${item.badge === 'EASY' ? 'badge-easy' : item.badge === 'HOT' ? 'badge-hot' : 'badge-count'}`}>
+                        {item.badge}
+                      </span>
+                    )}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        {/* Sidebar Footer */}
+        {isExpanded && (
+          <div className="m-3 p-3 rounded-4 bg-dark border border-secondary border-opacity-25 d-flex flex-column gap-2 fade-in-up">
+            <button 
+              className="btn btn-outline-light btn-sm w-100 fw-bold d-flex align-items-center justify-content-center gap-1 border-secondary"
+              onClick={() => {
+                if (mobileOpen && setMobileOpen) setMobileOpen(false);
+                onOpenPrintModal();
+              }}
+            >
+              <Printer size={14} />
+              <span>Print Cheat Sheet</span>
+            </button>
+
+            <div>
+              <div className="d-flex align-items-center gap-2 mb-1 text-warning">
+                <PhoneCall size={16} />
+                <span className="fw-bold small">Cyber Crime Helpline</span>
+              </div>
+              <a href="tel:1930" className="btn btn-warning btn-sm w-100 fw-bold rounded-3">
+                Dial 1930
+              </a>
+            </div>
+          </div>
+        )}
+      </aside>
+    </>
   );
 }

@@ -81,13 +81,13 @@ export default function CyberAssistantChatbot({ lang = 'en' }) {
     <>
       {/* Prominent Floating Robot Container */}
       <div 
-        className="position-fixed bottom-0 end-0 m-3 m-md-4 d-flex align-items-center gap-2"
+        className="chatbot-floating-wrapper position-fixed bottom-0 end-0 m-3 m-md-4 d-flex align-items-center gap-2"
         style={{ zIndex: 1050 }}
       >
         {/* Always-visible Glowing Speech Callout Badge */}
         {!isOpen && (
           <div 
-            className="p-2 px-3 bg-dark text-white rounded-pill shadow-lg border border-2 border-warning d-flex align-items-center gap-2 cursor-pointer"
+            className="p-2 px-3 bg-dark text-white rounded-pill shadow-lg border border-2 border-warning d-none d-sm-flex align-items-center gap-2 cursor-pointer"
             onClick={() => setIsOpen(true)}
             style={{ 
               cursor: 'pointer', 
@@ -107,8 +107,8 @@ export default function CyberAssistantChatbot({ lang = 'en' }) {
         <button
           className="btn rounded-circle shadow-lg d-flex align-items-center justify-content-center border border-3 border-warning position-relative"
           style={{ 
-            width: '70px', 
-            height: '70px', 
+            width: '64px', 
+            height: '64px', 
             background: 'linear-gradient(135deg, #1E3A2B 0%, #121212 100%)',
             boxShadow: '0 0 25px rgba(16, 185, 129, 0.7), 0 0 12px rgba(251, 191, 36, 0.8)',
             cursor: 'pointer',
@@ -118,12 +118,11 @@ export default function CyberAssistantChatbot({ lang = 'en' }) {
           title="Dhan Yodha AI Safety Assistant"
         >
           {isOpen ? (
-            <X size={32} className="text-white" />
+            <X size={30} className="text-white" />
           ) : (
             <>
-              {/* High visibility Robot Icon with Drop-Shadow */}
               <Bot 
-                size={40} 
+                size={36} 
                 style={{ 
                   color: '#FBBF24', 
                   filter: 'drop-shadow(0 0 8px rgba(251, 191, 36, 0.9))' 
@@ -144,13 +143,13 @@ export default function CyberAssistantChatbot({ lang = 'en' }) {
       {isOpen && (
         <div 
           className="position-fixed bottom-0 end-0 m-md-4 mb-5 me-2 bg-white rounded-4 shadow-lg border border-2 border-forest d-flex flex-column fade-in-up"
-          style={{ width: '370px', height: '540px', zIndex: 1049, maxWidth: '94vw' }}
+          style={{ width: '360px', height: '500px', zIndex: 1055, maxWidth: '94vw' }}
         >
-          {/* Chat Header with Large Robot Logo */}
+          {/* Chat Header */}
           <div className="p-3 bg-forest text-white rounded-top-4 d-flex align-items-center justify-content-between">
             <div className="d-flex align-items-center gap-2">
               <div className="p-2 bg-dark rounded-circle border border-warning">
-                <Bot size={26} style={{ color: '#FBBF24', filter: 'drop-shadow(0 0 6px rgba(251, 191, 36, 0.8))' }} />
+                <Bot size={24} style={{ color: '#FBBF24', filter: 'drop-shadow(0 0 6px rgba(251, 191, 36, 0.8))' }} />
               </div>
               <div>
                 <h6 className="fw-bold mb-0" style={{ letterSpacing: '0.6px', fontFamily: 'Outfit, sans-serif' }}>
