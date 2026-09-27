@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { MessageSquare, ShieldCheck, X, Send, Bot, AlertTriangle, PhoneCall, ArrowRight, Sparkles } from 'lucide-react';
+import { ShieldCheck, X, Send, Bot, Sparkles, Maximize2, Minimize2 } from 'lucide-react';
 
 export default function CyberAssistantChatbot({ lang = 'en' }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState(true); // Default full screen when opened
   const [messages, setMessages] = useState([
     {
       sender: 'bot',
@@ -80,12 +81,12 @@ export default function CyberAssistantChatbot({ lang = 'en' }) {
   return (
     <>
       {/* Prominent Floating Robot Container */}
-      <div 
-        className="chatbot-floating-wrapper position-fixed bottom-0 end-0 m-3 m-md-4 d-flex align-items-center gap-2"
-        style={{ zIndex: 1050 }}
-      >
-        {/* Always-visible Glowing Speech Callout Badge */}
-        {!isOpen && (
+      {!isOpen && (
+        <div 
+          className="chatbot-floating-wrapper position-fixed bottom-0 end-0 m-3 m-md-4 d-flex align-items-center gap-2"
+          style={{ zIndex: 1050 }}
+        >
+          {/* Always-visible Glowing Speech Callout Badge */}
           <div 
             className="p-2 px-3 bg-dark text-white rounded-pill shadow-lg border border-2 border-warning d-none d-sm-flex align-items-center gap-2 cursor-pointer"
             onClick={() => setIsOpen(true)}
@@ -101,110 +102,159 @@ export default function CyberAssistantChatbot({ lang = 'en' }) {
               {lang === 'hi' ? '🤖 एआई सुरक्षा सहायक' : '🤖 Ask Dhan Yodha AI Bot'}
             </span>
           </div>
-        )}
 
-        {/* High-Contrast Glowing Robot Icon Button */}
-        <button
-          className="btn rounded-circle shadow-lg d-flex align-items-center justify-content-center border border-3 border-warning position-relative"
-          style={{ 
-            width: '64px', 
-            height: '64px', 
-            background: 'linear-gradient(135deg, #1E3A2B 0%, #121212 100%)',
-            boxShadow: '0 0 25px rgba(16, 185, 129, 0.7), 0 0 12px rgba(251, 191, 36, 0.8)',
-            cursor: 'pointer',
-            transition: 'transform 0.2s ease'
-          }}
-          onClick={() => setIsOpen(!isOpen)}
-          title="Dhan Yodha AI Safety Assistant"
-        >
-          {isOpen ? (
-            <X size={30} className="text-white" />
-          ) : (
-            <>
-              <Bot 
-                size={36} 
-                style={{ 
-                  color: '#FBBF24', 
-                  filter: 'drop-shadow(0 0 8px rgba(251, 191, 36, 0.9))' 
-                }} 
-              />
-              <span 
-                className="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"
-                style={{ boxShadow: '0 0 10px rgba(239, 68, 68, 0.8)' }}
-              >
-                <span className="visually-hidden">AI Active</span>
-              </span>
-            </>
-          )}
-        </button>
-      </div>
+          {/* High-Contrast Glowing Robot Icon Button */}
+          <button
+            className="btn rounded-circle shadow-lg d-flex align-items-center justify-content-center border border-3 border-warning position-relative"
+            style={{ 
+              width: '64px', 
+              height: '64px', 
+              background: 'linear-gradient(135deg, #1E3A2B 0%, #121212 100%)',
+              boxShadow: '0 0 25px rgba(16, 185, 129, 0.7), 0 0 12px rgba(251, 191, 36, 0.8)',
+              cursor: 'pointer'
+            }}
+            onClick={() => setIsOpen(true)}
+            title="Dhan Yodha AI Safety Assistant"
+          >
+            <Bot 
+              size={36} 
+              style={{ 
+                color: '#FBBF24', 
+                filter: 'drop-shadow(0 0 8px rgba(251, 191, 36, 0.9))' 
+              }} 
+            />
+            <span 
+              className="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"
+              style={{ boxShadow: '0 0 10px rgba(239, 68, 68, 0.8)' }}
+            >
+              <span className="visually-hidden">AI Active</span>
+            </span>
+          </button>
+        </div>
+      )}
 
-      {/* Expanded Chatbot Window */}
+      {/* FULL SCREEN / EXPANDED CHATBOT OVERLAY */}
       {isOpen && (
         <div 
-          className="position-fixed bottom-0 end-0 m-md-4 mb-5 me-2 bg-white rounded-4 shadow-lg border border-2 border-forest d-flex flex-column fade-in-up"
-          style={{ width: '360px', height: '500px', zIndex: 1055, maxWidth: '94vw' }}
+          className="position-fixed top-0 start-0 w-100 h-100 d-flex flex-column bg-dark fade-in-up"
+          style={{ 
+            zIndex: 9999,
+            background: 'linear-gradient(135deg, #07120C 0%, #10241A 100%)'
+          }}
         >
-          {/* Chat Header */}
-          <div className="p-3 bg-forest text-white rounded-top-4 d-flex align-items-center justify-content-between">
-            <div className="d-flex align-items-center gap-2">
+          {/* FULL SCREEN TOP HEADER BAR */}
+          <div className="p-3 px-4 bg-forest border-bottom border-warning border-2 text-white d-flex align-items-center justify-content-between shadow-md" style={{ background: '#1E3A2B' }}>
+            <div className="d-flex align-items-center gap-3">
               <div className="p-2 bg-dark rounded-circle border border-warning">
-                <Bot size={24} style={{ color: '#FBBF24', filter: 'drop-shadow(0 0 6px rgba(251, 191, 36, 0.8))' }} />
+                <Bot size={32} style={{ color: '#FBBF24', filter: 'drop-shadow(0 0 8px rgba(251, 191, 36, 0.9))' }} />
               </div>
               <div>
-                <h6 className="fw-bold mb-0" style={{ letterSpacing: '0.6px', fontFamily: 'Outfit, sans-serif' }}>
-                  DHAN YODHA AI BOT
-                </h6>
-                <small className="text-success p-0" style={{ fontSize: '0.72rem' }}>● Online • Cyber Security Assistant</small>
+                <h5 className="fw-bold mb-0 text-white" style={{ letterSpacing: '0.8px', fontFamily: 'Outfit, sans-serif' }}>
+                  DHAN YODHA AI CYBER ASSISTANT
+                </h5>
+                <span className="badge bg-success-subtle text-success border border-success-subtle px-2 py-1" style={{ fontSize: '0.78rem' }}>
+                  ● 24x7 Active Cyber Security Bot
+                </span>
               </div>
             </div>
-            <button className="btn btn-sm text-white p-0 border-0" onClick={() => setIsOpen(false)}>
-              <X size={24} />
-            </button>
-          </div>
 
-          {/* Chat Messages Body */}
-          <div className="p-3 flex-grow-1 overflow-auto d-flex flex-column gap-2 bg-light">
-            {messages.map((m, idx) => (
-              <div 
-                key={idx} 
-                className={`p-2 px-3 rounded-3 small max-w-75 ${m.sender === 'user' ? 'bg-forest text-white align-self-end text-end' : 'bg-white text-dark border align-self-start shadow-sm'}`}
-                style={{ maxWidth: '82%' }}
-              >
-                {m.text}
-              </div>
-            ))}
-          </div>
-
-          {/* Quick Pre-populated Queries */}
-          <div className="p-2 bg-white border-top border-bottom d-flex flex-wrap gap-1" style={{ maxHeight: '100px', overflowY: 'auto' }}>
-            {quickQueries.map((qq, i) => (
+            <div className="d-flex align-items-center gap-2">
+              {/* Fullscreen Toggle */}
               <button 
-                key={i} 
-                className="btn btn-xs btn-outline-forest text-start font-monospace"
-                style={{ fontSize: '0.73rem', padding: '0.2rem 0.4rem' }}
-                onClick={() => {
-                  setMessages(prev => [...prev, { sender: 'user', text: qq.q }, { sender: 'bot', text: qq.a }]);
-                }}
+                className="btn btn-outline-light btn-sm rounded-circle p-2 d-none d-md-flex align-items-center justify-content-center"
+                onClick={() => setIsFullScreen(!isFullScreen)}
+                title={isFullScreen ? "Minimize View" : "Full Screen View"}
               >
-                {qq.q}
+                {isFullScreen ? <Minimize2 size={20} /> : <Maximize2 size={20} />}
               </button>
-            ))}
+
+              {/* PROMINENT CLOSE BUTTON */}
+              <button 
+                className="btn btn-danger rounded-pill px-3 py-2 fw-bold d-flex align-items-center gap-2 shadow-sm" 
+                onClick={() => setIsOpen(false)}
+                title="Close Chatbot"
+              >
+                <X size={22} />
+                <span>{lang === 'hi' ? 'बंद करें' : 'Close'}</span>
+              </button>
+            </div>
           </div>
 
-          {/* Input Footer */}
-          <form onSubmit={(e) => { e.preventDefault(); handleSend(); }} className="p-2 bg-white rounded-bottom-4 d-flex gap-2">
-            <input 
-              type="text" 
-              placeholder={lang === 'hi' ? 'संदेह यहाँ पूछें...' : 'Ask a security question...'}
-              className="form-control form-control-sm"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-            />
-            <button type="submit" className="btn btn-forest btn-sm">
-              <Send size={16} />
-            </button>
-          </form>
+          {/* CHAT MESSAGES BODY CONTAINER */}
+          <div className="flex-grow-1 p-3 p-md-4 overflow-auto d-flex flex-column gap-3" style={{ backgroundColor: '#0a1610' }}>
+            <div className="container" style={{ maxWidth: '900px' }}>
+              {messages.map((m, idx) => (
+                <div 
+                  key={idx} 
+                  className={`d-flex mb-3 ${m.sender === 'user' ? 'justify-content-end' : 'justify-content-start'}`}
+                >
+                  <div 
+                    className={`p-3 rounded-4 shadow-sm ${
+                      m.sender === 'user' 
+                        ? 'bg-success text-white' 
+                        : 'bg-dark text-light border border-secondary'
+                    }`}
+                    style={{ 
+                      maxWidth: '85%', 
+                      fontSize: '1.05rem', 
+                      lineHeight: '1.5',
+                      backgroundColor: m.sender === 'user' ? '#1E3A2B' : '#14281E',
+                      color: '#ffffff'
+                    }}
+                  >
+                    {m.sender === 'bot' && (
+                      <div className="fw-bold text-warning mb-1 small d-flex align-items-center gap-1">
+                        <ShieldCheck size={16} /> Dhan Yodha AI Assistant
+                      </div>
+                    )}
+                    {m.text}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* QUICK QUESTIONS PRESETS BAR */}
+          <div className="p-3 bg-dark border-top border-secondary">
+            <div className="container" style={{ maxWidth: '900px' }}>
+              <small className="text-warning fw-bold d-block mb-2">⚡ Quick Safety Queries (Click to ask):</small>
+              <div className="d-flex flex-wrap gap-2">
+                {quickQueries.map((qq, i) => (
+                  <button 
+                    key={i} 
+                    className="btn btn-outline-success btn-sm rounded-pill text-start text-white border-secondary"
+                    style={{ fontSize: '0.85rem' }}
+                    onClick={() => {
+                      setMessages(prev => [...prev, { sender: 'user', text: qq.q }, { sender: 'bot', text: qq.a }]);
+                    }}
+                  >
+                    {qq.q}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* FULL SCREEN INPUT BAR FOOTER */}
+          <div className="p-3 bg-forest border-top border-secondary">
+            <div className="container" style={{ maxWidth: '900px' }}>
+              <form onSubmit={(e) => { e.preventDefault(); handleSend(); }} className="d-flex gap-2">
+                <input 
+                  type="text" 
+                  placeholder={lang === 'hi' ? 'संदेह या प्रश्न यहाँ लिखें...' : 'Type any banking security question or scam alert here...'}
+                  className="form-control form-control-lg rounded-pill px-4 bg-dark text-white border-secondary"
+                  style={{ fontSize: '1rem' }}
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  autoFocus
+                />
+                <button type="submit" className="btn btn-warning rounded-pill px-4 fw-bold d-flex align-items-center gap-2">
+                  <Send size={20} />
+                  <span className="d-none d-sm-inline">{lang === 'hi' ? 'भेजें' : 'Send'}</span>
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       )}
     </>
