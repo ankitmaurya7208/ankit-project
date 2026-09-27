@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhan Yodha: Quick Banking Safety Survey</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f5f2eb;
+      font-family: system-ui, -apple-system, sans-serif;
+      color: #121212;
+    }
+    .card-box {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-top: 4px solid #1e3a2b;
+    }
+    .btn-green {
+      background-color: #1e3a2b;
+      color: #ffffff;
+      font-weight: 600;
+      padding: 12px 30px;
+      border-radius: 8px;
+    }
+    .btn-green:hover {
+      background-color: #2d5a43;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container py-4" style="max-width: 600px;">
+  <!-- Header -->
+  <div class="card-box bg-dark text-white text-center py-4" style="border-top: 6px solid #4ade80;">
+    <h3 class="fw-bold mb-1">🛡️ Dhan Yodha (धन योद्धा)</h3>
+    <p class="mb-0 text-light opacity-75">Quick 1-Minute Safe Banking Survey</p>
+  </div>
+
+  <form onsubmit="event.preventDefault(); alert('Response Submitted! Thank you for protecting your money.');">
+    
+    <!-- Q1 -->
+    <div class="card-box">
+      <label class="form-label fw-bold">1. Full Name <span class="text-danger">*</span></label>
+      <input type="text" class="form-control" required placeholder="Your Name">
+    </div>
+
+    <!-- Q2 -->
+    <div class="card-box">
+      <label class="form-label fw-bold">2. Age Group <span class="text-danger">*</span></label>
+      <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q2" required><label class="form-check-label">Under 18</label></div>
+      <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q2"><label class="form-check-label">18 – 35</label></div>
+      <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q2"><label class="form-check-label">36 – 60</label></div>
+      <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q2"><label class="form-check-label">Above 60 (Senior Citizen)</label></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="card-box">
+      <label class="form-label fw-bold">3. Is entering your UPI PIN required to RECEIVE money? <span class="text-danger">*</span></label>
+      <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q3" required><label class="form-check-label">Yes</label></div>
+      <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q3"><label class="form-check-label fw-bold text-success">NO (UPI PIN is ONLY for sending money)</label></div>
+      <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q3"><label class="form-check-label">Don't know</label></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="card-box">
+      <label class="form-label fw-bold">4. What is India's 24x7 National Cyber Crime Helpline number? <span class="text-danger">*</span></label>
+      <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q4" required><label class="form-check-label">100</label></div>
+      <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q4"><label class="form-check-label">112</label></div>
+      <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q4"><label class="form-check-label fw-bold text-success">1930</label></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="card-box">
+      <label class="form-label fw-bold">5. Should you ever share your OTP or PIN with a caller claiming to be a bank manager? <span class="text-danger">*</span></label>
+      <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q5" required><label class="form-check-label">Yes, if urgent</label></div>
+      <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q5"><label class="form-check-label fw-bold text-success">NO, NEVER! Bank officials never ask for OTP or PIN</label></div>
+    </div>
+
+    <!-- Submit -->
+    <div class="text-center py-2">
+      <button type="submit" class="btn btn-green w-100 shadow-sm">Submit Response 🚀</button>
+    </div>
+
+  </form>
+</div>
+
+</body>
+</html>

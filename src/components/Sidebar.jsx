@@ -42,6 +42,7 @@ export default function Sidebar({
     { id: 'emergency', label: lang === 'hi' ? 'गोल्डन आवर एवं डायरेक्टरी' : 'Emergency Golden Hour', icon: Clock },
     { id: 'quiz', label: lang === 'hi' ? 'ऑनलाइन सुरक्षा प्रश्नोत्तरी' : 'Online Safety Quiz', icon: HelpCircle },
     { id: 'stories', label: lang === 'hi' ? 'समुदाय अनुभव कहानियाँ' : 'Community Stories', icon: MessageSquareQuote, badge: storyCount },
+    { id: 'feedback', label: lang === 'hi' ? 'वेबसाइट प्रतिक्रिया' : 'Website Feedback', icon: MessageSquareQuote, badge: 'NEW' },
   ];
 
   const handleNavClick = (id) => {

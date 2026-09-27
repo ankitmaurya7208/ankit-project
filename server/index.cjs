@@ -55,6 +55,18 @@ db.serialize(() => {
     )
   `);
 
+  // 3. Feedback Table
+  db.run(`
+    CREATE TABLE IF NOT EXISTS feedback (
+      id TEXT PRIMARY KEY,
+      userName TEXT NOT NULL,
+      rating INTEGER NOT NULL,
+      category TEXT NOT NULL,
+      comments TEXT NOT NULL,
+      timestamp TEXT NOT NULL
+    )
+  `);
+
   // Migrate Seed Data if tables are empty
   db.get('SELECT COUNT(*) as count FROM stories', (err, row) => {
     if (!err && (!row || row.count === 0)) {
@@ -263,7 +275,51 @@ app.post('/api/quiz-takers', (req, res) => {
         }
       );
     }
+// GET all website feedback from SQL Database
+app.get('/api/feedback', (req, res) => {
+  db.all('SELECT * FROM feedback ORDER BY timestamp DESC', [], (err, rows) => {
+    if (err) {
+      return res.status(500).json({ error: 'Database query error.' });
+    }
+    res.json(rows || []);
   });
+});
+
+// POST new website feedback to SQL Database
+app.post('/api/feedback', (req, res) => {
+  const { userName, rating, category, comments } = req.body;
+  if (!userName || !comments) {
+    return res.status(400).json({ error: 'User name and comments are required.' });
+  }
+
+  const newFeedback = {
+    id: `fb-${Date.now()}`,
+    userName: userName.trim(),
+    rating: rating || 5,
+    category: category || 'General Feedback',
+    comments: comments.trim(),
+    timestamp: new Date().toISOString()
+  };
+
+  const stmt = db.prepare(`
+    INSERT INTO feedback (id, userName, rating, category, comments, timestamp)
+    VALUES (?, ?, ?, ?, ?, ?)
+  `);
+
+  stmt.run(
+    newFeedback.id,
+    newFeedback.userName,
+    newFeedback.rating,
+    newFeedback.category,
+    newFeedback.comments,
+    newFeedback.timestamp,
+    function (err) {
+      if (err) {
+        return res.status(500).json({ error: 'Failed to insert feedback into database.' });
+      }
+      res.status(201).json(newFeedback);
+    }
+  );
 });
 
 // Serve static assets in production if dist exists

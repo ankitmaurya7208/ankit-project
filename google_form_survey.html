@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhan Yodha: Digital Financial Literacy & Banking Safety Survey</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f0f4f1;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #2b2b2b;
+    }
+    .form-header-card {
+      background: linear-gradient(135deg, #1e3a2b 0%, #2d5a43 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-top: 8px solid #4ade80;
+    }
+    .form-section-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border-left: 5px solid #1e3a2b;
+    }
+    .question-title {
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+      color: #1a2e22;
+    }
+    .required-star {
+      color: #dc2626;
+    }
+    .btn-submit {
+      background-color: #1e3a2b;
+      color: #ffffff;
+      padding: 12px 36px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      border: none;
+      transition: all 0.2s ease;
+    }
+    .btn-submit:hover {
+      background-color: #2d5a43;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container py-4" style="max-width: 760px;">
+  <!-- FORM HEADER -->
+  <div class="form-header-card">
+    <h2 class="fw-bold mb-2">🛡️ Dhan Yodha (धन योद्धा): Safe Banking Survey</h2>
+    <p class="mb-2 opacity-90">Community Engagement Project Survey on Digital Financial Literacy, Cyber Fraud Prevention, and Helpline Awareness.</p>
+    <hr class="border-light opacity-30 my-3">
+    <small class="d-block text-warning fw-semibold">📌 Note: This survey does NOT ask for any real bank accounts, passwords, or UPI PINs.</small>
+  </div>
+
+  <form id="surveyForm" onsubmit="event.preventDefault(); alert('Form Submitted Successfully! Thank you for participating in the Dhan Yodha initiative.');">
+    
+    <!-- SECTION 1 -->
+    <div class="form-section-card">
+      <h5 class="text-success fw-bold mb-3">Section 1: Demographic Information</h5>
+      
+      <!-- Q1 -->
+      <div class="mb-4">
+        <label class="question-title">1. Full Name <span class="required-star">*</span></label>
+        <input type="text" class="form-control" required placeholder="Enter your full name">
+      </div>
+
+      <!-- Q2 -->
+      <div class="mb-4">
+        <label class="question-title">2. Age Group <span class="required-star">*</span></label>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q2" required><label class="form-check-label">Under 18 years</label></div>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q2"><label class="form-check-label">18 – 25 years</label></div>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q2"><label class="form-check-label">26 – 40 years</label></div>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q2"><label class="form-check-label">41 – 60 years</label></div>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q2"><label class="form-check-label">Above 60 years (Senior Citizen)</label></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="mb-3">
+        <label class="question-title">3. Primary Occupation / Status <span class="required-star">*</span></label>
+        <select class="form-select" required>
+          <option value="">Select occupation...</option>
+          <option>Student</option>
+          <option>Merchant / Small Business Owner</option>
+          <option>Salaried Employee (Private / Govt)</option>
+          <option>Senior Citizen / Retired</option>
+          <option>Homemaker</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="form-section-card">
+      <h5 class="text-success fw-bold mb-3">Section 2: Security & Fraud Awareness</h5>
+
+      <!-- Q4 -->
+      <div class="mb-4">
+        <label class="question-title">4. When RECEIVING money via UPI (e.g. refund, pension, or buyer payment), is it required to enter your UPI PIN? <span class="required-star">*</span></label>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q4" required><label class="form-check-label">Yes, PIN is always required to receive money</label></div>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q4"><label class="form-check-label fw-bold text-success">NO! UPI PIN is ONLY required for SENDING money / deducting funds</label></div>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q4"><label class="form-check-label">Only if payment is above ₹1,000</label></div>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q4"><label class="form-check-label">Don't know</label></div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="mb-4">
+        <label class="question-title">5. What is the official 24x7 National Cyber Crime Emergency Helpline number in India for reporting financial fraud? <span class="required-star">*</span></label>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q5" required><label class="form-check-label">100</label></div>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q5"><label class="form-check-label">112</label></div>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q5"><label class="form-check-label fw-bold text-success">1930</label></div>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q5"><label class="form-check-label">1800-BANK-HELP</label></div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="mb-3">
+        <label class="question-title">6. If an online buyer sends a QR code stating "Scan to Receive Payment", what happens if you scan and enter your PIN? <span class="required-star">*</span></label>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q6" required><label class="form-check-label">Money will be credited to my account</label></div>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q6"><label class="form-check-label fw-bold text-danger">Money will be DEBITED (stolen) from my bank account!</label></div>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q6"><label class="form-check-label">Don't know</label></div>
+      </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="form-section-card">
+      <h5 class="text-success fw-bold mb-3">Section 3: Emergency & Portal Feedback</h5>
+
+      <!-- Q7 -->
+      <div class="mb-4">
+        <label class="question-title">7. What is the ideal time window ("Golden Hour") to report cyber fraud to 1930 to freeze stolen funds? <span class="required-star">*</span></label>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q7" required><label class="form-check-label fw-bold text-success">Within 1 to 2 hours of the incident</label></div>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q7"><label class="form-check-label">Within 24 hours</label></div>
+        <div class="form-check mb-2"><input class="form-check-input" type="radio" name="q7"><label class="form-check-label">Within 7 days</label></div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="mb-3">
+        <label class="question-title">8. How confident do you feel in identifying fraudulent links and fake payment requests after using Dhan Yodha? <span class="required-star">*</span></label>
+        <div class="d-flex justify-content-between align-items-center mt-2 px-2">
+          <span>1 (Not Confident)</span>
+          <input type="range" class="form-range mx-3" min="1" max="5" value="5">
+          <span>5 (Extremely Confident)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="text-center py-3">
+      <button type="submit" class="btn btn-submit shadow">Submit Response 🚀</button>
+    </div>
+
+  </form>
+</div>
+
+</body>
+</html>
