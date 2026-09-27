@@ -452,13 +452,39 @@ header.sticky-top {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Global Fluid Auto-Resizing & Adaptive Scaling Rules */
+img, video, canvas, svg, iframe {
+  max-width: 100% !important;
+  height: auto;
+}
+
+.container, .container-fluid, .row {
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Fluid Auto-Scaling Typography across device viewports */
+h1, .h1 { font-size: clamp(1.4rem, 4vw, 2.5rem); }
+h2, .h2 { font-size: clamp(1.2rem, 3vw, 2.0rem); }
+h3, .h3 { font-size: clamp(1.1rem, 2.2vw, 1.6rem); }
+h4, .h4 { font-size: clamp(1.0rem, 1.8vw, 1.3rem); }
+h5, .h5 { font-size: clamp(0.95rem, 1.5vw, 1.15rem); }
+p, body { font-size: clamp(0.88rem, 1.2vw, 1.02rem); }
+
+/* Auto-Resizing Responsive Grids */
+.auto-resizing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(250px, 30vw, 360px), 1fr));
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+}
+
 @media (max-width: 768px) {
   .main-wrapper {
     padding-bottom: calc(72px + env(safe-area-inset-bottom));
   }
 
   .content-area {
-    padding: 0.85rem 0.65rem;
+    padding: clamp(0.5rem, 2vw, 1rem);
   }
 
   .chatbot-floating-wrapper {
@@ -466,7 +492,6 @@ header.sticky-top {
     right: 10px !important;
   }
 
-  /* Enhanced Mobile Touch & Accessibility Rules */
   button, a.btn, input, select, textarea {
     min-height: 44px;
     touch-action: manipulation;
@@ -480,9 +505,21 @@ header.sticky-top {
   .card {
     border-radius: 14px !important;
   }
-
-  h1, .h1 { font-size: 1.65rem !important; }
-  h2, .h2 { font-size: 1.35rem !important; }
-  h3, .h3 { font-size: 1.2rem !important; }
 }
+
+/* Tablet & Intermediate Screen Auto-Scaling */
+@media (min-width: 769px) and (max-width: 1199px) {
+  .content-area {
+    padding: 1.25rem 1rem;
+  }
+}
+
+/* Ultra-Wide Screen Scaling */
+@media (min-width: 1400px) {
+  .content-area {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+}
+
 
