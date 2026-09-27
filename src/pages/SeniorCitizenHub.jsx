@@ -1,5 +1,6 @@
 import React from 'react';
 import { PhoneCall, ShieldCheck, Heart, AlertTriangle, Eye, CreditCard, Lock } from 'lucide-react';
+import SeniorVisualIcons from '../components/Shared/SeniorVisualIcons';
 
 export default function SeniorCitizenHub({ lang = 'en' }) {
   return (
@@ -20,6 +21,9 @@ export default function SeniorCitizenHub({ lang = 'en' }) {
           </div>
         </div>
       </div>
+
+      {/* Senior Citizen Visual Icons Guide */}
+      <SeniorVisualIcons lang={lang} />
 
       {/* Emergency Helpline Banner */}
       <div className="p-4 bg-warning bg-opacity-20 border border-warning rounded-4 text-center">
