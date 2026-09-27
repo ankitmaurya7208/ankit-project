@@ -47,8 +47,28 @@ export default function PrintableCheatSheetModal({ show, onClose, lang = 'en' })
                 </div>
               </div>
 
+              {/* AI GENERATED VISUAL INFOGRAPHIC HERO BANNER IMAGE */}
+              <div className="text-center mb-4 overflow-hidden rounded-4 border border-2 border-forest shadow-sm">
+                <img 
+                  src="/images/cheatsheet_banner.jpg" 
+                  alt="Dhan Yodha AI Safe Banking Banner" 
+                  className="img-fluid w-100" 
+                  style={{ maxHeight: '360px', objectFit: 'cover' }}
+                />
+              </div>
+
               {/* VISUAL DIAGRAM UNDERSTANDING IMAGE 1: UPI PIN FLOW */}
               <UpiPinFlowDiagram lang={lang} />
+
+              {/* AI GENERATED 4 ESSENTIAL RULES INFOGRAPHIC IMAGE */}
+              <div className="text-center my-4 overflow-hidden rounded-4 border border-2 border-warning shadow-sm">
+                <img 
+                  src="/images/cheatsheet_rules.jpg" 
+                  alt="4 Essential Safe Online Banking Rules Infographic" 
+                  className="img-fluid w-100" 
+                  style={{ maxHeight: '420px', objectFit: 'contain' }}
+                />
+              </div>
 
               {/* 5 VISUAL INFOGRAPHIC GOLDEN RULES WITH IMAGES & ICONS */}
               <div className="d-flex flex-column gap-3 mb-4">
