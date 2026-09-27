@@ -275,6 +275,9 @@ app.post('/api/quiz-takers', (req, res) => {
         }
       );
     }
+  });
+});
+
 // GET all website feedback from SQL Database
 app.get('/api/feedback', (req, res) => {
   db.all('SELECT * FROM feedback ORDER BY timestamp DESC', [], (err, rows) => {

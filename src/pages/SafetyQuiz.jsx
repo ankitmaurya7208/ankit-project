@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { HelpCircle, CheckCircle2, Award, RotateCcw, Printer, Trophy, Edit3, Download, ShieldCheck, Check } from 'lucide-react';
+import { HelpCircle, CheckCircle2, Award, RotateCcw, Printer, Trophy, Edit3, Download, ShieldCheck, Check, User } from 'lucide-react';
 import QuizHallOfFame from '../components/Widgets/QuizHallOfFame';
 
-export default function SafetyQuiz({ lang = 'en', userName = 'Banking Warrior' }) {
+export default function SafetyQuiz({ lang = 'en', userName = '' }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState(0);
-  const [takerName, setTakerName] = useState(userName || '');
+  const [takerName, setTakerName] = useState(userName || localStorage.getItem('dhan_yodha_user_name') || '');
   const [refreshKey, setRefreshKey] = useState(0);
   const canvasRef = useRef(null);
 
@@ -287,21 +287,35 @@ export default function SafetyQuiz({ lang = 'en', userName = 'Banking Warrior' }
               </h4>
               <p className="small text-muted mb-0">
                 {lang === 'hi' 
-                  ? '8 प्रश्नों के उत्तर दें, अपना वास्तविक स्कोर दर्ज करें और अपना आधिकारिक धन योद्धा प्रमाण पत्र डाउनलोड करें'
+                  ? '8 प्रश्नों के उत्तर दें, अपना नाम दर्ज करें और अपना आधिकारिक धन योद्धा प्रमाण पत्र डाउनलोड करें'
                   : 'Answer 8 questions, record your score, and download your official Dhan Yodha Certificate'}
               </p>
             </div>
           </div>
+        </div>
 
-          <div className="d-flex align-items-center gap-2 p-2 bg-white rounded-3 border">
-            <Edit3 size={16} className="text-forest" />
+        {/* Dedicated Test Taker Name Identification Bar */}
+        <div className="mt-3 p-3 bg-white rounded-3 border border-2 border-forest shadow-sm d-flex align-items-center justify-content-between flex-wrap gap-3">
+          <div className="d-flex align-items-center gap-2">
+            <div className="p-2 bg-success bg-opacity-10 text-success rounded-circle">
+              <User size={22} />
+            </div>
+            <div>
+              <span className="badge bg-forest text-white px-2 py-1 me-2">{lang === 'hi' ? 'परीक्षार्थी पहचान' : 'TEST TAKER NAME'}</span>
+              <strong className="text-dark d-inline-block">
+                {lang === 'hi' ? 'परीक्षा देने वाले व्यक्ति का नाम:' : 'Person Taking The Test:'}
+              </strong>
+            </div>
+          </div>
+
+          <div className="d-flex align-items-center gap-2 flex-grow-1" style={{ maxWidth: '400px' }}>
+            <Edit3 size={18} className="text-forest" />
             <input 
               type="text"
-              className="form-control form-control-sm border-0 shadow-none fw-bold"
-              placeholder={lang === 'hi' ? 'परीक्षार्थी नाम' : 'Your Real Name'}
+              className="form-control form-control-lg border-2 border-success fw-bold text-forest shadow-sm"
+              placeholder={lang === 'hi' ? 'परीक्षार्थी का पूरा नाम दर्ज करें (उदा. राहुल शर्मा)' : 'Enter Test Taker Full Name (e.g. Rahul Sharma)'}
               value={takerName}
               onChange={(e) => setTakerName(e.target.value)}
-              style={{ minWidth: '160px' }}
             />
           </div>
         </div>
@@ -409,8 +423,22 @@ export default function SafetyQuiz({ lang = 'en', userName = 'Banking Warrior' }
               {lang === 'hi' ? 'बधाई हो! आपका परिणाम डेटाबेस में रिकॉर्ड हो गया है!' : 'Congratulations! Real Test Result Saved to Database!'}
             </h3>
             <p className="lead text-dark font-monospace fw-bold mb-2">
-              {lang === 'hi' ? `परीक्षार्थी: ${takerName} • स्कोर: ${score} / ${questions.length} (${Math.round((score/questions.length)*100)}%)` : `Taker: ${takerName} • Score: ${score} out of ${questions.length} (${Math.round((score/questions.length)*100)}%)`}
+              {lang === 'hi' ? `परीक्षार्थी: ${takerName || 'Banking Warrior'} • स्कोर: ${score} / ${questions.length} (${Math.round((score/questions.length)*100)}%)` : `Taker: ${takerName || 'Banking Warrior'} • Score: ${score} out of ${questions.length} (${Math.round((score/questions.length)*100)}%)`}
             </p>
+
+            {/* Live Candidate Name Input Bar */}
+            <div className="d-inline-flex align-items-center gap-2 mt-2 p-2 px-3 bg-light rounded-pill border border-2 border-forest shadow-sm">
+              <User size={18} className="text-forest" />
+              <span className="small fw-bold text-dark">{lang === 'hi' ? 'प्रमाण पत्र पर नाम बदलें:' : 'Test Taker Name on Certificate:'}</span>
+              <input 
+                type="text"
+                className="form-control form-control-sm border-0 shadow-none fw-bold text-forest bg-white rounded-pill px-3"
+                value={takerName}
+                onChange={(e) => setTakerName(e.target.value)}
+                style={{ width: '220px' }}
+                placeholder={lang === 'hi' ? 'परीक्षार्थी नाम' : 'Candidate Name'}
+              />
+            </div>
           </div>
 
           {/* OFFICIAL CERTIFICATE BOX */}
