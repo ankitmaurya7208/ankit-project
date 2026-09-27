@@ -1,5 +1,6 @@
 import React from 'react';
 import { Printer, ShieldCheck, PhoneCall, QrCode, Key, Lock, AlertOctagon, Smartphone, ShieldAlert, X, EyeOff } from 'lucide-react';
+import { UpiPinFlowDiagram, PhishingUrlDiagram, GoldenHourProcessDiagram } from './VisualSafetyDiagrams';
 
 export default function PrintableCheatSheetModal({ show, onClose, lang = 'en' }) {
   if (!show) return null;
@@ -45,6 +46,9 @@ export default function PrintableCheatSheetModal({ show, onClose, lang = 'en' })
                   </span>
                 </div>
               </div>
+
+              {/* VISUAL DIAGRAM UNDERSTANDING IMAGE 1: UPI PIN FLOW */}
+              <UpiPinFlowDiagram lang={lang} />
 
               {/* 5 VISUAL INFOGRAPHIC GOLDEN RULES WITH IMAGES & ICONS */}
               <div className="d-flex flex-column gap-3 mb-4">
@@ -128,6 +132,12 @@ export default function PrintableCheatSheetModal({ show, onClose, lang = 'en' })
                     </p>
                   </div>
                 </div>
+
+                {/* VISUAL DIAGRAM UNDERSTANDING IMAGE 2: PHISHING URL INSPECTOR */}
+                <PhishingUrlDiagram lang={lang} />
+
+                {/* VISUAL DIAGRAM UNDERSTANDING IMAGE 3: GOLDEN HOUR ACTION FLOW */}
+                <GoldenHourProcessDiagram lang={lang} />
 
               </div>
 
