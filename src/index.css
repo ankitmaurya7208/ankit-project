@@ -465,4 +465,24 @@ header.sticky-top {
     bottom: calc(74px + env(safe-area-inset-bottom)) !important;
     right: 10px !important;
   }
+
+  /* Enhanced Mobile Touch & Accessibility Rules */
+  button, a.btn, input, select, textarea {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  button:active, a.btn:active {
+    transform: scale(0.97);
+    transition: transform 0.1s ease;
+  }
+
+  .card {
+    border-radius: 14px !important;
+  }
+
+  h1, .h1 { font-size: 1.65rem !important; }
+  h2, .h2 { font-size: 1.35rem !important; }
+  h3, .h3 { font-size: 1.2rem !important; }
 }
+

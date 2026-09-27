@@ -20,7 +20,6 @@ import EmergencyChecklist from './components/Widgets/EmergencyChecklist';
 import CyberAssistantChatbot from './components/Widgets/CyberAssistantChatbot';
 import PrintableCheatSheetModal from './components/Shared/PrintableCheatSheetModal';
 import UserNameModal from './components/UserNameModal';
-import WebsiteFeedback from './pages/WebsiteFeedback';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -158,7 +157,6 @@ export default function App() {
               {activePage === 'emergency' && <EmergencyChecklist lang={lang} />}
               {activePage === 'quiz' && <SafetyQuiz lang={lang} userName={userName || 'Banking Warrior'} />}
               {activePage === 'stories' && <CommunityStories setStoryCount={setStoryCount} lang={lang} />}
-              {activePage === 'feedback' && <WebsiteFeedback userName={userName || 'Banking Warrior'} lang={lang} />}
             </main>
           </div>
 
