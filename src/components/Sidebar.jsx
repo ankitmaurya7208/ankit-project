@@ -16,6 +16,7 @@ import {
   Printer,
   Newspaper,
   Heart,
+  ClipboardCheck,
   X
 } from 'lucide-react';
 
@@ -33,6 +34,7 @@ export default function Sidebar({
   const menuItems = [
     { id: 'home', label: lang === 'hi' ? 'डैशबोर्ड होम' : 'Dashboard Home', icon: Home },
     { id: 'senior-hub', label: lang === 'hi' ? 'वरिष्ठ नागरिक कॉर्नर' : 'Senior Citizens Hub', icon: Heart, badge: 'EASY' },
+    { id: 'google-feedback', label: lang === 'hi' ? 'गूगल फॉर्म फीडबैक' : 'Google Form Feedback', icon: ClipboardCheck, badge: 'FORM' },
     { id: 'news', label: lang === 'hi' ? 'वास्तविक फ्रॉड समाचार' : 'Scam News Bulletin', icon: Newspaper, badge: 'HOT' },
     { id: 'upi-atm', label: lang === 'hi' ? 'UPI / ATM / OTP सुरक्षा' : 'UPI / ATM / OTP Safety', icon: CreditCard },
     { id: 'phishing', label: lang === 'hi' ? 'फ़िशिंग एवं स्कैम' : 'Phishing & Scams', icon: AlertTriangle },

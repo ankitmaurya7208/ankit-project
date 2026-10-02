@@ -20,6 +20,7 @@ import EmergencyChecklist from './components/Widgets/EmergencyChecklist';
 import CyberAssistantChatbot from './components/Widgets/CyberAssistantChatbot';
 import PrintableCheatSheetModal from './components/Shared/PrintableCheatSheetModal';
 import UserNameModal from './components/UserNameModal';
+import GoogleFeedbackPage from './pages/GoogleFeedbackPage';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -148,6 +149,7 @@ export default function App() {
                 />
               )}
               {activePage === 'senior-hub' && <SeniorCitizenHub lang={lang} />}
+              {activePage === 'google-feedback' && <GoogleFeedbackPage lang={lang} />}
               {activePage === 'news' && <ScamNewsBulletin lang={lang} />}
               {activePage === 'upi-atm' && <UpiAtmSafety lang={lang} />}
               {activePage === 'phishing' && <PhishingScams lang={lang} />}

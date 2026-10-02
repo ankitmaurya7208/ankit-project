@@ -18,6 +18,8 @@ import {
   Edit2
 } from 'lucide-react';
 
+import GoogleFormFeedbackCard from '../components/Widgets/GoogleFormFeedbackCard';
+
 export default function Home({ setActivePage, storyCount = 0, lang = 'en', userName = 'Warrior', onEditName }) {
   return (
     <div className="d-flex flex-column gap-4 fade-in-up">
@@ -162,6 +164,9 @@ export default function Home({ setActivePage, storyCount = 0, lang = 'en', userN
           {lang === 'hi' ? 'आपातकालीन सहायता: साइबर फ्रॉड की तुरंत रिपोर्ट करें - कॉल 1930' : 'EMERGENCY: Report Cyber Fraud: Call 1930'}
         </span>
       </a>
+
+      {/* OFFICIAL GOOGLE FORM COMMUNITY FEEDBACK SECTION */}
+      <GoogleFormFeedbackCard lang={lang} />
 
       {/* Quick Action Tiles */}
       <div className="row g-3">
