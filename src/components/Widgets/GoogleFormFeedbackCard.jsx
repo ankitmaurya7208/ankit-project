@@ -20,9 +20,9 @@ export default function GoogleFormFeedbackCard({ lang = 'en' }) {
               <ClipboardCheck size={34} style={{ color: '#673AB7' }} />
             </div>
             <div>
-              <div className="d-inline-flex align-items-center gap-2 px-2 py-1 bg-white bg-opacity-20 rounded-pill text-white small fw-bold mb-1">
-                <Sparkles size={14} className="text-warning" />
-                <span>OFFICIAL GOOGLE FORM SURVEY • 100% SECURE</span>
+              <div className="d-inline-flex align-items-center gap-2 px-3 py-1 bg-warning text-dark rounded-pill small fw-bold mb-2 shadow-sm">
+                <Sparkles size={14} className="text-dark" />
+                <span>OFFICIAL GOOGLE FORM SURVEY • 100% SECURE & CONFIDENTIAL</span>
               </div>
               <h4 className="fw-bold mb-0 text-white" style={{ fontFamily: 'Outfit, sans-serif' }}>
                 {lang === 'hi' ? 'समुदाय सुरक्षा फीडबैक सर्वेक्षण (Google Form)' : 'Dhan Yodha Community Feedback Survey'}

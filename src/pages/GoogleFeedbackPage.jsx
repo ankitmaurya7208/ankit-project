@@ -16,7 +16,7 @@ export default function GoogleFeedbackPage({ lang = 'en' }) {
               <h4 className="fw-bold mb-1 text-forest" style={{ fontFamily: 'Outfit, sans-serif' }}>
                 {lang === 'hi' ? 'आधिकारिक समुदाय फीडबैक केंद्र (Google Form)' : 'Official Community Feedback Hub'}
               </h4>
-              <p className="small text-muted mb-0">
+              <p className="small text-dark fw-semibold mb-0">
                 {lang === 'hi'
                   ? 'सुरक्षित ऑनलाइन बैंकिंग जागरूकता बढ़ाने के लिए अपना फीडबैक साझा करें'
                   : 'Share your valuable inputs to shape our safe online banking initiatives'}

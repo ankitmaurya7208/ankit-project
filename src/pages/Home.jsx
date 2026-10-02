@@ -36,14 +36,14 @@ export default function Home({ setActivePage, storyCount = 0, lang = 'en', userN
                 ? `नमस्ते ${userName}, क्या आप अपने पैसों की सुरक्षा के लिए तैयार हैं? 🛡️`
                 : `Hello ${userName}, ready to protect your money? 🛡️`}
             </h5>
-            <small className="text-muted">
+            <small className="text-dark fw-semibold opacity-90">
               {lang === 'hi' ? 'आपका व्यक्तिगत सुरक्षा डैशबोर्ड सक्रिय है' : 'Your personal cyber safety protection dashboard is active'}
             </small>
           </div>
         </div>
 
         <button 
-          className="btn btn-sm btn-outline-forest rounded-pill d-flex align-items-center gap-1"
+          className="btn btn-sm btn-forest rounded-pill d-flex align-items-center gap-1 shadow-sm"
           onClick={onEditName}
           title="Edit your name"
         >
@@ -56,8 +56,8 @@ export default function Home({ setActivePage, storyCount = 0, lang = 'en', userN
       <div className="hero-cyber-card text-center text-md-start">
         <div className="row align-items-center g-4">
           <div className="col-md-7">
-            <div className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-success bg-opacity-20 border border-success text-success mb-3 small fw-bold">
-              <Sparkles size={14} className="text-warning" />
+            <div className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-warning text-dark border border-warning mb-3 small fw-bold shadow-sm">
+              <Sparkles size={14} className="text-dark" />
               <span>{lang === 'hi' ? 'राष्ट्रीय सुरक्षा पोर्टल • 2024' : 'NATIONAL SAFETY PORTAL • 2024'}</span>
             </div>
 

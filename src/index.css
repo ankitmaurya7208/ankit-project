@@ -533,4 +533,55 @@ p, body { font-size: clamp(0.88rem, 1.2vw, 1.02rem); }
   }
 }
 
+/* Custom High-Contrast Utility Classes */
+.bg-forest {
+  background-color: #1E3A2B !important;
+  color: #FFFFFF !important;
+}
+
+.text-forest {
+  color: #1E3A2B !important;
+}
+
+[data-theme="dark"] .text-forest {
+  color: #A7F3D0 !important;
+}
+
+.bg-forest-subtle {
+  background-color: #E8F5E9 !important;
+  color: #1E3A2B !important;
+  border: 1.5px solid #2D6A4F !important;
+}
+
+.btn-forest {
+  background-color: #1E3A2B !important;
+  border-color: #1E3A2B !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+.btn-forest:hover, .btn-forest:active {
+  background-color: #2D6A4F !important;
+  border-color: #2D6A4F !important;
+  color: #FFFFFF !important;
+}
+
+.btn-outline-forest {
+  background-color: transparent !important;
+  border: 2px solid #1E3A2B !important;
+  color: #1E3A2B !important;
+  font-weight: 700 !important;
+}
+
+.btn-outline-forest:hover, .btn-outline-forest:active {
+  background-color: #1E3A2B !important;
+  color: #FFFFFF !important;
+}
+
+.badge.bg-forest {
+  background-color: #1E3A2B !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
 

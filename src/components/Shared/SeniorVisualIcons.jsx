@@ -11,7 +11,7 @@ export default function SeniorVisualIcons({ lang = 'en' }) {
         <h3 className="fw-bold text-forest mb-1 font-serif" style={{ fontFamily: 'Georgia, serif' }}>
           {lang === 'hi' ? 'बुजुर्गों के लिए आसानी से समझ में आने वाले 4 मुख्य चित्र प्रतीक' : '4 Easy Visual Icons for Elderly Banking Safety'}
         </h3>
-        <p className="text-muted fs-5">
+        <p className="text-dark fw-semibold fs-5">
           {lang === 'hi' ? 'इन 4 चित्रों को देखें और अपने परिवार के वरिष्ठ नागरिकों को समझाएं:' : 'Look at these 4 visual icons to easily remember safe banking rules:'}
         </p>
       </div>
@@ -30,7 +30,7 @@ export default function SeniorVisualIcons({ lang = 'en' }) {
               <CheckCircle className="text-success" size={24} />
               <span>{lang === 'hi' ? 'पेंशन / रिफंड खाते में सीधे आते हैं' : 'Pension & Refunds arrive automatically'}</span>
             </div>
-            <p className="text-muted fs-6 mb-0">
+            <p className="text-dark fw-bold fs-6 mb-0">
               {lang === 'hi' 
                 ? 'पैसे मिलने पर कोई बटन या PIN दर्ज नहीं करना पड़ता। केवल भेजने पर PIN दर्ज होता है।' 
                 : 'Money coming into your account requires ZERO button presses. PIN is ONLY to send money.'}
@@ -51,7 +51,7 @@ export default function SeniorVisualIcons({ lang = 'en' }) {
               <XCircle className="text-danger" size={24} />
               <span>{lang === 'hi' ? 'OTP या खाता ब्लॉक की धमकी = 100% फ्रॉड' : 'Threat of account block = 100% FRAUD'}</span>
             </div>
-            <p className="text-muted fs-6 mb-0">
+            <p className="text-dark fw-bold fs-6 mb-0">
               {lang === 'hi' 
                 ? 'कॉल पर OTP मांगने वाले को तुरंत काटें। बैंक अधिकारी कभी भी फोन पर OTP नहीं मांगते।' 
                 : 'Disconnect callers demanding OTPs or threatening 2-hour SIM/Bank blocking immediately.'}
@@ -72,7 +72,7 @@ export default function SeniorVisualIcons({ lang = 'en' }) {
               <XCircle className="text-danger" size={24} />
               <span>{lang === 'hi' ? 'AnyDesk / TeamViewer = फोन हैक' : 'AnyDesk / TeamViewer = Phone Hack'}</span>
             </div>
-            <p className="text-muted fs-6 mb-0">
+            <p className="text-dark fw-bold fs-6 mb-0">
               {lang === 'hi' 
                 ? 'कस्टमर केयर कहने पर कोई ऐप डाउनलोड न करें। यह ऐप ठगों को आपकी स्क्रीन देखने देता है।' 
                 : 'Never install remote desktop apps. Scammers use them to view your incoming OTP live.'}
@@ -93,7 +93,7 @@ export default function SeniorVisualIcons({ lang = 'en' }) {
               <ShieldCheck className="text-primary" size={24} />
               <span>{lang === 'hi' ? 'mAadhaar ऐप से फिंगरप्रिंट सुरक्षित करें' : 'Lock Biometrics via mAadhaar App'}</span>
             </div>
-            <p className="text-muted fs-6 mb-0">
+            <p className="text-dark fw-bold fs-6 mb-0">
               {lang === 'hi' 
                 ? 'अपने आधार फिंगरप्रिंट को mAadhaar ऐप से लॉक रखें ताकि बायोमेट्रिक चोरी से फ्रॉड न हो सके।' 
                 : 'Lock your Aadhaar biometrics using mAadhaar app to prevent illegal fingerprint transactions.'}
